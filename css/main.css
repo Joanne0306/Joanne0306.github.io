@@ -1,0 +1,43 @@
+h1 {
+    color: aquamarine
+}
+
+#wrapper{
+    width:800px;
+    margin:0 auto;
+}
+
+#banner {
+    width: 800px;
+    height: 100px;
+    background-color: coral;
+    clear:both;
+}
+
+#nav{
+    width:100px;
+    height: 200px;
+    background-color: aqua;
+    float:left;
+}
+
+#content {
+    width: 600px;
+    height: 400px;
+    background-color: azure;
+    float:left;
+}
+
+#footer {
+    width: 800px;
+    height: 50px;
+    background-color: bisque;
+    clear:both;
+}
+
+#supporting {
+    width: 100px;
+    height: 150px;
+    background-color: beige;
+    float: right;
+}
