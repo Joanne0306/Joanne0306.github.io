@@ -4,9 +4,34 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="css/as5.css"> <!-- 你的样式文件链接 -->
-		<script src="js/as5.js"></script> <!-- 你的jQuery文件链接 -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<title>我的網站</title>
 		<!DOCTYPE html>
+
+
+		
+		<style>
+		
+		#video1, #video2 {
+			position: relative;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+		
+		video::-webkit-media-controls {
+			display: none;
+		}
+		
+		video::-webkit-media-controls-start-playback-button {
+			display: none;
+		}
+		
+		</style>
+
+
 </head>
 <body>
     <div class="leading-section" style="height:200vh; background-color:royalblue;"></div>
@@ -30,6 +55,49 @@
 	</div>
 
 </div>
+
+<script>
+$(function() {
+    const videoElement1 = $('#video1').get(0);
+    const videoElement2 = $('#video2').get(0);
+
+    if (!videoElement1 || !videoElement2) {
+        console.error("Video element not found");
+        return;
+    }
+
+    const maxScroll = $(document).height() - $(window).height();
+
+    $(window).scroll(function() {
+        const currentScrollPosition = $(document).scrollTop();
+
+        if (videoElement1.duration) {
+            if (currentScrollPosition >= 0) {
+                videoElement1.currentTime = videoElement1.duration * (currentScrollPosition / maxScroll);
+                videoElement1.play();
+            } else {
+                videoElement1.pause();
+            }
+        } else {
+            console.warn("Video 1 duration is not available");
+        }
+
+        if (videoElement2.duration) {
+            if (currentScrollPosition >= 0) {
+                videoElement2.currentTime = videoElement2.duration * (currentScrollPosition / maxScroll);
+                videoElement2.play();
+            } else {
+                videoElement2.pause();
+            }
+        } else {
+            console.warn("Video 2 duration is not available");
+        }
+    });
+});
+
+
+
+</script>
 
 </body>
 </html>
